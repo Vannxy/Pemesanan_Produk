@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const products = [
         { id: 1, name: 'Jellicious Choco', price: 6000, quantity: 0 },
@@ -7,6 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const productCards = document.querySelectorAll('.product-card');
 
+    
+    function getTotalItems() {
+        return products.reduce((sum, product) => sum + product.quantity, 0);
+    }
+    
     productCards.forEach(card => {
         const productId = parseInt(card.dataset.id);
         const plusBtn = card.querySelector('.btn-plus');
@@ -15,8 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         plusBtn.addEventListener('click', () => {
             const product = products.find(p => p.id === productId);
-            product.quantity++;
-            updateUI();
+            
+            
+            if (getTotalItems() < 10) { 
+                product.quantity++;
+                updateUI();
+            } else {
+                alert('Maksimal pesanan adalah 10 item.');
+            }
+            
         });
 
         minusBtn.addEventListener('click', () => {
@@ -76,8 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalPrice = totalItems * 6000;
         
         
-        const sellerWhatsAppNumber = '6285655702694'; // Contoh: 6281234567890 (gunakan format internasional)
-
+        const sellerWhatsAppNumber = '6285655702694'; 
         const message = `
 Halo, saya mau pesan:
 ${orderDetails}
@@ -89,13 +101,15 @@ Nama Pemesan: *${customerName}*
 Terima kasih.
         `;
         
-        // Meng-encode pesan agar sesuai format URL
+       
         const encodedMessage = encodeURIComponent(message.trim());
         
-        // Membuat link WhatsApp
+        
         const whatsappURL = `https://api.whatsapp.com/send?phone=${sellerWhatsAppNumber}&text=${encodedMessage}`;
         
-        // Membuka link di tab baru
+        
         window.open(whatsappURL, '_blank');
     });
 });
+
+    

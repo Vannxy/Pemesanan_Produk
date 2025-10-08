@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
+Document.addEventListener('DOMContentLoaded', () => {
+    
+    const MAX_ORDER_LIMIT = 10; 
+
     const products = [
         { id: 1, name: 'Jellicious Choco', price: 6000, quantity: 0 },
         { id: 2, name: 'SummerMix Tea', price: 6000, quantity: 0 },
@@ -15,6 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         plusBtn.addEventListener('click', () => {
             const product = products.find(p => p.id === productId);
+            
+            
+            const currentTotalItems = products.reduce((sum, p) => sum + p.quantity, 0);
+
+            
+            if (currentTotalItems >= MAX_ORDER_LIMIT) {
+                alert(`Maaf, batas maksimal pesanan adalah ${MAX_ORDER_LIMIT} item.`);
+                return; 
+            }
+            
+
             product.quantity++;
             updateUI();
         });
@@ -61,10 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
         let orderDetails = '';
         let totalItems = 0;
+        let totalPrice = 0; 
+        
         products.forEach(product => {
             if (product.quantity > 0) {
                 orderDetails += `- ${product.name}: ${product.quantity}\n`;
                 totalItems += product.quantity;
+                totalPrice += product.quantity * product.price; 
             }
         });
 
@@ -72,8 +89,13 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Anda belum memilih produk.');
             return;
         }
+        
+    
+        if (totalItems > MAX_ORDER_LIMIT) {
+             alert(`Terjadi kesalahan: Total pesanan melebihi batas maksimal ${MAX_ORDER_LIMIT} item. Mohon koreksi pesanan Anda.`);
+             return;
+        }
 
-        const totalPrice = totalItems * 6000;
         
         
         const sellerWhatsAppNumber = '6285655702694';

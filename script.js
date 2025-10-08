@@ -1,6 +1,6 @@
 Document.addEventListener('DOMContentLoaded', () => {
-    
-    const MAX_ORDER_LIMIT = 10; 
+    // Tentukan batas maksimal pesanan
+    const MAX_ORDER_LIMIT = 10; // Nilai diubah dari 5 menjadi 10
 
     const products = [
         { id: 1, name: 'Jellicious Choco', price: 6000, quantity: 0 },
@@ -19,15 +19,15 @@ Document.addEventListener('DOMContentLoaded', () => {
         plusBtn.addEventListener('click', () => {
             const product = products.find(p => p.id === productId);
             
-            
+            // --- LOGIKA PEMBATASAN PESANAN ---
             const currentTotalItems = products.reduce((sum, p) => sum + p.quantity, 0);
 
-            
+            // Cek apakah penambahan item ini akan melebihi batas 10
             if (currentTotalItems >= MAX_ORDER_LIMIT) {
                 alert(`Maaf, batas maksimal pesanan adalah ${MAX_ORDER_LIMIT} item.`);
-                return; 
+                return; // Hentikan fungsi
             }
-            
+            // --- AKHIR LOGIKA PEMBATASAN PESANAN ---
 
             product.quantity++;
             updateUI();
@@ -75,7 +75,7 @@ Document.addEventListener('DOMContentLoaded', () => {
         
         let orderDetails = '';
         let totalItems = 0;
-        let totalPrice = 0; 
+        let totalPrice = 0;
         
         products.forEach(product => {
             if (product.quantity > 0) {
@@ -90,13 +90,12 @@ Document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         
-    
+        // Cek kembali batas maksimal saat mengklik pesan (sebagai pengamanan)
         if (totalItems > MAX_ORDER_LIMIT) {
              alert(`Terjadi kesalahan: Total pesanan melebihi batas maksimal ${MAX_ORDER_LIMIT} item. Mohon koreksi pesanan Anda.`);
              return;
         }
 
-        
         
         const sellerWhatsAppNumber = '6285655702694';
 

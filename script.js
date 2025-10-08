@@ -1,9 +1,8 @@
-// JavaScript untuk Fungsionalitas
 document.addEventListener('DOMContentLoaded', () => {
     const products = [
-        { id: 1, name: 'Es Kopi Susu', price: 10000, quantity: 0 },
-        { id: 2, name: 'Es Teh Leci', price: 10000, quantity: 0 },
-        { id: 3, name: 'Jus Alpukat', price: 10000, quantity: 0 }
+        { id: 1, name: 'Jellicious Choco', price: 6000, quantity: 0 },
+        { id: 2, name: 'SummerMix Tea', price: 6000, quantity: 0 },
+        { id: 3, name: 'Sparkly Bliss', price: 6000, quantity: 0 }
     ];
 
     const productCards = document.querySelectorAll('.product-card');
@@ -34,29 +33,29 @@ document.addEventListener('DOMContentLoaded', () => {
         let totalPrice = 0;
 
         products.forEach(product => {
-            // Update tampilan kuantitas di setiap kartu produk
+            
             const card = document.querySelector(`.product-card[data-id='${product.id}']`);
             if (card) {
                 const quantitySpan = card.querySelector('.quantity');
                 quantitySpan.textContent = product.quantity;
             }
 
-            // Hitung total
+            
             totalItems += product.quantity;
             totalPrice += product.quantity * product.price;
         });
 
-        // Update ringkasan pesanan di bagian bawah
+        
         document.getElementById('total-items').textContent = totalItems;
         document.getElementById('total-price').textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
     }
     
-    // Logika Tombol Pesan Sekarang
+    
     const orderButton = document.getElementById('order-now');
     orderButton.addEventListener('click', () => {
         const customerName = document.getElementById('customer-name').value;
         if (!customerName) {
-            alert('Mohon masukkan nama Anda.');
+            alert('Mohon masukkan nama_kelas_jurusan anda.');
             return;
         }
         
@@ -76,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const totalPrice = totalItems * 10000;
         
-        // --- GANTI NOMOR WHATSAPP DI SINI ---
+        
         const sellerWhatsAppNumber = '6285655702694'; // Contoh: 6281234567890 (gunakan format internasional)
 
         const message = `
@@ -90,13 +89,13 @@ Nama Pemesan: *${customerName}*
 Terima kasih.
         `;
         
-        // Meng-encode pesan agar sesuai format URL
+        
         const encodedMessage = encodeURIComponent(message.trim());
         
-        // Membuat link WhatsApp
+        
         const whatsappURL = `https://api.whatsapp.com/send?phone=${sellerWhatsAppNumber}&text=${encodedMessage}`;
         
-        // Membuka link di tab baru
+        
         window.open(whatsappURL, '_blank');
     });
 });

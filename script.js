@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     const products = [
         { id: 1, name: 'Jellicious Choco', price: 6000, quantity: 0 },
@@ -8,10 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const productCards = document.querySelectorAll('.product-card');
 
-    
-    function getTotalItems() {
-        return products.reduce((sum, product) => sum + product.quantity, 0);
-    }
     
     productCards.forEach(card => {
         const productId = parseInt(card.dataset.id);
@@ -23,11 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const product = products.find(p => p.id === productId);
             
             
-            if (getTotalItems() < 10) { 
+            if (product.quantity < 10) { 
                 product.quantity++;
                 updateUI();
             } else {
-                alert('Maksimal pesanan adalah 10 item.');
+                alert(`Maksimal pesanan untuk ${product.name} adalah 10 item.`);
             }
             
         });
@@ -112,4 +107,5 @@ Terima kasih.
     });
 });
 
-    
+
+            

@@ -1,0 +1,126 @@
+/* CSS untuk Tampilan */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.header {
+    background-color: #00AA13; /* Warna hijau khas Gojek/GoFood */
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.header h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 15px;
+    flex: 1;
+}
+.product-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+.product-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+.product-info {
+    flex-grow: 1;
+}
+.product-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+}
+.product-info .price {
+    color: #333;
+    font-weight: bold;
+}
+.quantity-control {
+    display: flex;
+    align-items: center;
+}
+.quantity-control button {
+    background-color: #00AA13;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    font-weight: bold;
+}
+.quantity-control span {
+    margin: 0 15px;
+    font-size: 1.1em;
+    min-width: 20px;
+    text-align: center;
+}
+.order-summary {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 15px 20px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.input-group {
+    margin-bottom: 10px;
+}
+.input-group input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.order-button {
+    background-color: #f70000; /* Warna merah untuk tombol pesan */
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+.order-button:hover {
+    background-color: #d60000;
+}
+.total-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.total-info .label {
+    font-size: 1em;
+    font-weight: bold;
+}
+.total-info .value {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #00AA13;
+}

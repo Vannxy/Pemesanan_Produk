@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalPrice = totalItems * 6000;
         
         
-        const sellerWhatsAppNumber = '6281412419737'; 
+        const sellerWhatsAppNumber = '6285655702694'; 
         const message = `
 Halo, saya mau pesan:
 ${orderDetails}

@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const totalPrice = totalItems * 10000;
+        const totalPrice = totalItems * 6000;
         
         
         const sellerWhatsAppNumber = '6285655702694'; // Contoh: 6281234567890 (gunakan format internasional)

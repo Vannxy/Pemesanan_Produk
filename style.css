@@ -33,6 +33,10 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+.head-icon {
+    background-color: #FFFFFF;
+    border-radius: 50%;
+}
 .app-header {
     background-color: #00AA13; 
     color: white;

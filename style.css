@@ -1,4 +1,3 @@
-/* CSS untuk Tampilan */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -8,16 +7,30 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-.header {
-    background-color: #00AA13; /* Warna hijau khas Gojek/GoFood */
+.app-header {
+    background-color: #00AA13; 
     color: white;
-    padding: 15px 20px 20px 15px;
-    text-align: center;
+    padding: 10px 20px; 
+    display: flex; 
+    align-items: center;
+    width: 100%;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-.header h1 {
+
+.app-header h1 {
     margin: 0;
     font-size: 1.5em;
+    flex-grow: 1; 
+    text-align: left;
+}
+
+.app-icon {
+    width: 60px; 
+    height: 60px; 
+    margin-right: 10px; 
+    background-color: #00AA13; 
+    border-radius: 50%; 
+    padding: 2px;
 }
 .container {
     width: 100%;

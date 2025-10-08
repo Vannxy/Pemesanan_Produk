@@ -1,6 +1,5 @@
 Document.addEventListener('DOMContentLoaded', () => {
-    // Tentukan batas maksimal pesanan
-    const MAX_ORDER_LIMIT = 10; // Nilai diubah dari 5 menjadi 10
+    // MAX_ORDER_LIMIT telah dihapus, jadi tidak ada batasan.
 
     const products = [
         { id: 1, name: 'Jellicious Choco', price: 6000, quantity: 0 },
@@ -19,23 +18,17 @@ Document.addEventListener('DOMContentLoaded', () => {
         plusBtn.addEventListener('click', () => {
             const product = products.find(p => p.id === productId);
             
-            // --- LOGIKA PEMBATASAN PESANAN ---
-            const currentTotalItems = products.reduce((sum, p) => sum + p.quantity, 0);
-
-            // Cek apakah penambahan item ini akan melebihi batas 10
-            if (currentTotalItems >= MAX_ORDER_LIMIT) {
-                alert(`Maaf, batas maksimal pesanan adalah ${MAX_ORDER_LIMIT} item.`);
-                return; // Hentikan fungsi
+            // Pastikan produk ditemukan sebelum menambah kuantitas
+            if (product) { 
+                product.quantity++;
+                updateUI();
             }
-            // --- AKHIR LOGIKA PEMBATASAN PESANAN ---
-
-            product.quantity++;
-            updateUI();
         });
 
         minusBtn.addEventListener('click', () => {
             const product = products.find(p => p.id === productId);
-            if (product.quantity > 0) {
+            // Pastikan produk ditemukan dan kuantitas > 0 sebelum mengurangi
+            if (product && product.quantity > 0) { 
                 product.quantity--;
                 updateUI();
             }
@@ -90,13 +83,6 @@ Document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         
-        // Cek kembali batas maksimal saat mengklik pesan (sebagai pengamanan)
-        if (totalItems > MAX_ORDER_LIMIT) {
-             alert(`Terjadi kesalahan: Total pesanan melebihi batas maksimal ${MAX_ORDER_LIMIT} item. Mohon koreksi pesanan Anda.`);
-             return;
-        }
-
-        
         const sellerWhatsAppNumber = '6285655702694';
 
         const message = `
@@ -119,4 +105,4 @@ Terima kasih.
         
         window.open(whatsappURL, '_blank');
     });
-});
+});                    

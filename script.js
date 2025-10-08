@@ -1,6 +1,4 @@
-Document.addEventListener('DOMContentLoaded', () => {
-    // MAX_ORDER_LIMIT telah dihapus, jadi tidak ada batasan.
-
+document.addEventListener('DOMContentLoaded', () => {
     const products = [
         { id: 1, name: 'Jellicious Choco', price: 6000, quantity: 0 },
         { id: 2, name: 'SummerMix Tea', price: 6000, quantity: 0 },
@@ -17,18 +15,13 @@ Document.addEventListener('DOMContentLoaded', () => {
 
         plusBtn.addEventListener('click', () => {
             const product = products.find(p => p.id === productId);
-            
-            // Pastikan produk ditemukan sebelum menambah kuantitas
-            if (product) { 
-                product.quantity++;
-                updateUI();
-            }
+            product.quantity++;
+            updateUI();
         });
 
         minusBtn.addEventListener('click', () => {
             const product = products.find(p => p.id === productId);
-            // Pastikan produk ditemukan dan kuantitas > 0 sebelum mengurangi
-            if (product && product.quantity > 0) { 
+            if (product.quantity > 0) {
                 product.quantity--;
                 updateUI();
             }
@@ -40,7 +33,7 @@ Document.addEventListener('DOMContentLoaded', () => {
         let totalPrice = 0;
 
         products.forEach(product => {
-            
+           
             const card = document.querySelector(`.product-card[data-id='${product.id}']`);
             if (card) {
                 const quantitySpan = card.querySelector('.quantity');
@@ -52,7 +45,7 @@ Document.addEventListener('DOMContentLoaded', () => {
             totalPrice += product.quantity * product.price;
         });
 
-        
+      
         document.getElementById('total-items').textContent = totalItems;
         document.getElementById('total-price').textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
     }
@@ -68,13 +61,10 @@ Document.addEventListener('DOMContentLoaded', () => {
         
         let orderDetails = '';
         let totalItems = 0;
-        let totalPrice = 0;
-        
         products.forEach(product => {
             if (product.quantity > 0) {
                 orderDetails += `- ${product.name}: ${product.quantity}\n`;
                 totalItems += product.quantity;
-                totalPrice += product.quantity * product.price; 
             }
         });
 
@@ -82,8 +72,11 @@ Document.addEventListener('DOMContentLoaded', () => {
             alert('Anda belum memilih produk.');
             return;
         }
+
+        const totalPrice = totalItems * 6000;
         
-        const sellerWhatsAppNumber = '6285655702694';
+        
+        const sellerWhatsAppNumber = '6285655702694'; // Contoh: 6281234567890 (gunakan format internasional)
 
         const message = `
 Halo, saya mau pesan:
@@ -96,13 +89,13 @@ Nama Pemesan: *${customerName}*
 Terima kasih.
         `;
         
-        
+        // Meng-encode pesan agar sesuai format URL
         const encodedMessage = encodeURIComponent(message.trim());
         
-        
+        // Membuat link WhatsApp
         const whatsappURL = `https://api.whatsapp.com/send?phone=${sellerWhatsAppNumber}&text=${encodedMessage}`;
         
-        
+        // Membuka link di tab baru
         window.open(whatsappURL, '_blank');
     });
-});                    
+});

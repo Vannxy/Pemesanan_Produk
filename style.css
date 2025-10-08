@@ -108,7 +108,7 @@ body {
     border-radius: 5px;
 }
 .order-button {
-    background-color: #f70000; /* Warna merah untuk tombol pesan */
+    background-color: #f70000; 
     color: white;
     border: none;
     padding: 15px;

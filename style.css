@@ -10,9 +10,8 @@ body {
 }
 .header {
     background-color: #00AA13; /* Warna hijau khas Gojek/GoFood */
-    width: 30px 2000px;
     color: white;
-    padding: 15px 100px;
+    padding: 30px 100px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }

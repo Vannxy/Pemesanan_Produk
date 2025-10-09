@@ -12,7 +12,7 @@ body {
     border-radius: 100%;
 }
 .app-header {
-    background-color: #008080; 
+    background-color: #35817e; 
     color: white;
     padding: 7px 20px; 
     display: flex; 
@@ -32,7 +32,7 @@ body {
     width: 60px; 
     height: 60px; 
     margin-right: 10px; 
-    background-color: #008080; 
+    background-color: #35817e; 
     border-radius: 50%; 
     padding: 2px;
 }

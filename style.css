@@ -12,7 +12,7 @@ body {
     border-radius: 100%;
 }
 .app-header {
-    background-color: #00AA13; 
+    background-color: #008080; 
     color: white;
     padding: 7px 20px; 
     display: flex; 
@@ -75,7 +75,7 @@ body {
     align-items: center;
 }
 .quantity-control button {
-    background-color: #00AA13;
+    background-color: #228B22;
     color: white;
     border: none;
     width: 30px;

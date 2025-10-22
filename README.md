@@ -31,4 +31,4 @@ Aplikasi ini dirancang untuk alur pemesanan yang sederhana dan cepat:
 
 ## 🌟 Harapan Kami
 
-Kami berharap karya sederhana ini tidak hanya memenuhi tugas sekolah, tetapi juga dapat menjadi inspirasi dan referensi bagi para **UMKM** di luar sana untuk beralih ke sistem pemesanan digital yang lebih efisien.
+Kami berharap karya sederhana ini dapat menjadi inspirasi dan referensi bagi para **UMKM** di luar sana untuk beralih ke sistem pemesanan digital yang lebih efisien.

@@ -1,6 +1,6 @@
 # KIOS REFRESHA
 
-Proyek ini dibuat sebagai pemenuhan tugas di sekolah untuk menjual produk makanan atau minuman. KIOS REFRESHA adalah solusi pemesanan *pre-order* minuman digital yang bertujuan untuk **mempermudah pelanggan** melakukan pemesanan tanpa antrian dan mempermudah pencatatan bagi tim penjual.
+Proyek ini dibuat sebagai implementasi dari pelatihan TIK. Yang mana merupakan aplikasi e-commerce untuk memudahkan menjual produk makanan atau minuman. KIOS REFRESHA adalah solusi pemesanan *pre-order* minuman digital yang bertujuan untuk **mempermudah pelanggan** melakukan pemesanan tanpa antrian dan mempermudah pencatatan bagi tim penjual.
 
 ## 🥤 Cara Kerja dan Fitur Utama
 
